@@ -7,16 +7,15 @@ class PigLatinizer
     text = user_input.split(" ")
 
     if text.size == 1
-      # binding.pry
-      word_piglatinize(text.first.split(''))
+      word_piglatinize(text.first).join
     else text.size >= 2
-      @sentence = text
-      sentence_piglatinize
+      sentence_piglatinize(text).join(" ")
     end
   end
 
     def word_piglatinize(word)
       vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+      word= word.split('')
       if !vowels.include?(word[0]) && !vowels.include?(word[1]) && !vowels.include?(word[2])
         new_word = word.rotate(3)
 
@@ -30,15 +29,15 @@ class PigLatinizer
         new_word = word << "w"
       end
       new_word << "ay"
-      # binding.pry
-      new_word.join
+      # new_word.join
     end
 
     def sentence_piglatinize(sentence)
+      vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
       sentence.map do |word|
-        word.word_piglatinize
+        # binding.pry
+        word_piglatinize(word).join
       end
-
     end
 
 
