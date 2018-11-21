@@ -34,6 +34,13 @@ class PigLatinizer
       new_word.join
     end
 
+    def sentence_piglatinize(sentence)
+      sentence.map do |word|
+        word.word_piglatinize
+      end
+
+    end
+
 
 
 
