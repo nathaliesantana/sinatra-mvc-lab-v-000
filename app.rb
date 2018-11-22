@@ -9,9 +9,9 @@ class App < Sinatra::Base
 
   post '/piglatinize' do
     #recieve params
-   binding.pry
+  #  binding.pry
     @piglatinizer_converter = PigLatinizer.new.piglatinize(params[:user_phrase])
-    erb :piglatinize_converted
+    erb :piglatinize
   end
 
 end
