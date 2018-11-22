@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require 'pry'
 
 class App < Sinatra::Base
   get '/' do
@@ -8,8 +9,9 @@ class App < Sinatra::Base
 
   post '/piglatinize' do
     #recieve params
-    @giglatinizer_converter = PigLatinizer.new(params[:text])
-    erb :piglatinize_converted
+  #  binding.pry
+    @piglatinizer_converter = PigLatinizer.new.piglatinize(params[:user_phrase])
+    erb :piglatinize
   end
 
 end
